@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'streams',
     'social_settings',
     'subscribers',
+    'blog',
 
     'wagtail.contrib.forms',
     'wagtail.contrib.modeladmin',
