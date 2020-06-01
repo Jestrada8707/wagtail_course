@@ -37,6 +37,28 @@
         <p class="lead">{{ self.banner_subtitle|richtext }}</p>
     </div>
 </div>
+<div class="container">
+    {% if settings.social_settings.SocialMediaSettings.facebook%}
+    <a href="{{ settings.social_settings.SocialMediaSettings.facebook }}">
+        <i class="icofont-facebook icofont-2x"></i>
+    </a>
+    {% endif%}
+
+    {% if settings.social_settings.SocialMediaSettings.twitter%}
+    <a href="{{ settings.social_settings.SocialMediaSettings.twitter }}">
+        <i class="icofont-twitter icofont-2x"></i>
+    </a>
+    {% endif%}
+
+    {% if settings.social_settings.SocialMediaSettings.youtube%}
+    <a href="{{ settings.social_settings.SocialMediaSettings.youtube }}">
+        <i class="icofont-youtube icofont-2x"></i>
+    </a>
+    {% endif%}
+</div>
+<hr>
+
+
 {% for block in page.content%}
 {% include_block block %}
 {% endfor %}
