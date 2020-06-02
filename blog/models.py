@@ -9,7 +9,6 @@ from wagtail.core.fields import StreamField
 from wagtail.images.edit_handlers import ImageChooserPanel
 from wagtail.contrib.routable_page.models import RoutablePageMixin, route
 
-
 from streams import blocks
 
 
@@ -33,9 +32,23 @@ class BlogListingPage(RoutablePageMixin, Page):
 
     @route(r'^lastest/?$', name='latest_post')
     def get_latest_blog_post(self, request, *args, **kwargs):
-        context = self.get_context(request,*args,**kwargs)
+        context = self.get_context(request, *args, **kwargs)
         context['posts'] = context['posts'][:1]
         return render(request, 'blog/latest_post.html', context)
+
+    def get_sitemap_urls(self, request):
+        # uncomment to have no sitemap for this page
+        # return []
+        sitemap = super().get_sitemap_urls(request)
+        sitemap.append(
+            {
+                'location': self.full_url + self.reverse_subpage('latest_post'),
+                'lastmod': (self.last_published_at or self.latest_revision_created_at),
+                'priority': 0.9,
+            }
+        )
+
+        return sitemap
 
 
 class BlogDetailPage(Page):
