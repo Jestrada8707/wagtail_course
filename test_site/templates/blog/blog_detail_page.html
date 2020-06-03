@@ -14,6 +14,19 @@
 </div>
 
 <div class="container">
+    <h2 class="text-md-left">Categories</h2>
+    <ul>
+        {% for cat in self.categories.all %}
+        <li>
+            <a href="{{self.get_parent.url}}?category={{ cat.slug }}">
+                {{ cat.name }}
+            </a>
+        </li>
+        {% endfor%}
+    </ul>
+</div>
+
+<div class="container">
     {% for iter in self.blog_authors.all %}
     {% image iter.author.image fill-50x50 as img%}
     <ul>
