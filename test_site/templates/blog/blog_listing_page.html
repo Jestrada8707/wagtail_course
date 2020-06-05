@@ -25,7 +25,7 @@
 <div class="container mt-5">
     {% for post in posts %}
     <div class="row">
-        {% image post.blog_image fill-250x250 as blog_img%}
+        {% image post.banner_image fill-250x250 as blog_img%}
         <div class="col-sm-4">
             <a href="{{ post.url }}">
                 <img src="{{ blog_img.url }}" alt=" {{ blog_img.alt }}">
@@ -34,6 +34,9 @@
         <div class="col-sm-8">
             <a href="{{ post.url }}">
                 <h4>{{ post.custom_title }}</h4>
+                {% if post.subtitle %}
+                <p>{{ post.subtitle }}</p>
+                {% endif %}
             </a>
         </div>
     </div>
