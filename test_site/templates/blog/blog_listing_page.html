@@ -34,8 +34,8 @@
         <div class="col-sm-8">
             <a href="{{ post.url }}">
                 <h4>{{ post.custom_title }}</h4>
-                {% if post.subtitle %}
-                <p>{{ post.subtitle }}</p>
+                {% if post.specific.subtitle %}
+                <p>{{ post.specific.subtitle }}</p>
                 {% endif %}
             </a>
         </div>
