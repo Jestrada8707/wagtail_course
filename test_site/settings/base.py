@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'social_settings',
     'subscribers',
     'blog',
+    'menus',
 
     'wagtail.contrib.forms',
     'wagtail.contrib.modeladmin',
@@ -57,7 +58,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sitemaps',
-
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
