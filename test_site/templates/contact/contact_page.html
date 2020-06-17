@@ -11,13 +11,11 @@
 </p>
 
 <form action="{%  pageurl page %}" method="post" class="align-content-center">
-    {% csrf_token %}
-
-    {{ form.as_ul }}
-
-    <input type="submit">
-
-
+    <div class="form-group">
+        {% csrf_token %}
+        {{ form.as_ul }}
+        <input type="submit">
+    </div>
 </form>
 
 {% endblock %}

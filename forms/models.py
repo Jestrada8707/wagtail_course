@@ -13,6 +13,7 @@ from wagtail.contrib.forms.models import (
     AbstractFormField
 )
 
+from wagtailcaptcha.models import WagtailCaptchaEmailForm
 
 # Create your models here.
 
@@ -25,7 +26,7 @@ class FormField(AbstractFormField):
     )
 
 
-class FormPage(AbstractEmailForm):
+class FormPage(WagtailCaptchaEmailForm):
     template = 'contact/contact_page.html'
 
     intro = RichTextField(blank=True)
