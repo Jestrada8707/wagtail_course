@@ -19,9 +19,16 @@ MIDDLEWARE = MIDDLEWARE + [
     'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
-INTERNAL_IPS =("127.0.0.1")
+INTERNAL_IPS = ("127.0.0.1")
 
 try:
     from .local import *
 except ImportError:
     pass
+
+# CACHES = {
+#     'default': {
+#         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+#         'LOCATION': '/Users/Jestrada/Desktop/test_wagtail/test_site/cache'
+#     }
+# }
