@@ -26,9 +26,9 @@ try:
 except ImportError:
     pass
 
-# CACHES = {
-#     'default': {
-#         'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
-#         'LOCATION': '/Users/Jestrada/Desktop/test_wagtail/test_site/cache'
-#     }
-# }
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': '/Users/Jestrada/Desktop/test_wagtail/test_site/cache'
+    }
+}

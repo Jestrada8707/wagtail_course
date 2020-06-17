@@ -3,6 +3,8 @@
 from django.db import models
 from django.shortcuts import render
 from django import forms
+from django.core.cache import cache
+from django.core.cache.utils import make_template_fragment_key
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
 from wagtail.snippets.edit_handlers import SnippetChooserPanel
@@ -193,6 +195,15 @@ class BlogDetailPage(Page):
         ),
         StreamFieldPanel('content'),
     ]
+
+    # Update Cache when something is update
+    def save(self, *args, **kwargs):
+        key = make_template_fragment_key(
+            'post_cache_test',
+            [self.id]
+        )
+        cache.delete(key)
+        return super().save(*args, **kwargs)
 
 
 class ArticleBlogPage(BlogDetailPage):
